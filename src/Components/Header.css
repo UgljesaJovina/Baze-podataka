@@ -1,0 +1,30 @@
+.NavBar {
+    padding-left: 3%;
+    display: flex;
+    background-color: rgb(127, 127, 249);
+    align-items: center stretch;
+}
+
+.link {
+    position: relative;
+    padding-left: 2%;
+    padding-right: 2%;
+    transition: all .2s;
+    width: 6%;
+    text-decoration: none;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link:hover{
+    background-color: rgb(55, 55, 255);
+}
+
+.NavBar > p {
+    display: flex;
+    align-items: center;
+}

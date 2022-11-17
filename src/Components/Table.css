@@ -1,0 +1,32 @@
+.table {
+    position: relative;
+    margin: 5%;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: auto;
+    list-style: none;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+}
+
+.row>p {
+    display: inline-block;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex: 5;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+    font-size: large;
+}
+
+.row>p:first-child {
+    flex: 1;
+}

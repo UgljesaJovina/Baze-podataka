@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./Components/Header";
+import Izdavaci from "./Components/Izdavaci";
+import Knjige from "./Components/Knjige";
+import Autori from "./Components/Autori";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<Knjige />}/>
+          <Route path="autori" element={<Autori />}/>
+          <Route path="izdavaci" element={<Izdavaci />}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
