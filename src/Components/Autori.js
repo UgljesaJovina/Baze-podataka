@@ -14,7 +14,6 @@ export default function Autori() {
     }, []);
     
     autori.forEach((el) => {
-        console.log(el);
         Object.keys(el).forEach((key) => {
             if (el[key] === null) {
                 el[key] = <span style={{color: "red"}}>Nema</span>
@@ -34,8 +33,8 @@ export default function Autori() {
         </div>
         
         {autori.map((el, i) => {
-            return <Autor key={el.id} num={i+1} name={el.ime} surname={el.prezime} middleName={el.srednjeIme} 
-                birthDate={el.datumRodjenja.split("T")[0]} adress={el.adresa}/>
+            return <Autor key={el.id} id={el.id} num={i+1} name={el.ime} surname={el.prezime} middleName={el.srednjeIme} 
+                birthDate={el.datumRodjenja.split("T")[0]} adress={el.adresa} setList={setAutori}/>
         })}
     </div>)
 }

@@ -33,8 +33,8 @@ export default function Izdavaci() {
         </div>
         
         {izdavaci.map((el, i) => {
-            return <Izdavac key={el.id} num={i+1} name={el.naziv} pib={el.pib} phone={el.telefon} 
-                mail={el.mail}  site={el.sajt}/>
+            return <Izdavac key={el.id} id={el.id}num={i+1} name={el.naziv} pib={el.pib} phone={el.telefon} 
+                mail={el.mail}  site={el.sajt} setList={setIzdavaci}/>
         })}
     </div>)
 }

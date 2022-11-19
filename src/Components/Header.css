@@ -12,7 +12,7 @@
     transition: all .2s;
     width: 6%;
     text-decoration: none;
-    color: white;
+    color: black;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: x-large;
     display: flex;
@@ -22,6 +22,11 @@
 
 .link:hover{
     background-color: rgb(55, 55, 255);
+    color: white;
+}
+
+.activeLink {
+    background-color: white;
 }
 
 .NavBar > p {

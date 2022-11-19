@@ -1,6 +1,7 @@
 .table {
     position: relative;
     margin: 5%;
+    margin-top: 4%;
     top: 0;
     left: 0;
     height: auto;
@@ -9,9 +10,19 @@
 }
 
 .row {
+    position: relative;
     display: flex;
     justify-content: space-around;
     height: auto;
+}
+
+.row > img {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    max-height: 44px;
+    transform: translate(-100%, -50%);
+    cursor: pointer;
 }
 
 .row>p {
@@ -25,8 +36,23 @@
     border-width: 1px;
     text-align: center;
     font-size: large;
+    word-break: break-all;
 }
 
 .row>p:first-child {
     flex: 1;
+}
+
+.create-button {
+    position: relative;
+    font-size: x-large;
+    padding: 1%;
+    transform: translateX(-50%);
+    width: 12%;
+    background-color: limegreen;
+    color: white;
+    border-radius: 15px;
+    border-color: transparent;
+    cursor: pointer;
+    align-self: flex-end;
 }
