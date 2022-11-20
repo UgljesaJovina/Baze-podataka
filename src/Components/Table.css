@@ -1,3 +1,14 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
 .table {
     position: relative;
     margin: 5%;
@@ -14,6 +25,14 @@
     display: flex;
     justify-content: space-around;
     height: auto;
+}
+
+.row.initial {
+    font-weight: 700;
+}
+
+.row.initial > p {
+    border-bottom-width: 3px;
 }
 
 .row > img {
@@ -34,9 +53,11 @@
     border-color: black;
     border-style: solid;
     border-width: 1px;
-    text-align: center;
     font-size: large;
-    word-break: break-all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .row>p:first-child {
@@ -55,4 +76,88 @@
     border-color: transparent;
     cursor: pointer;
     align-self: flex-end;
+    z-index: 0;
+}
+
+.create-item {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.create-item.show {
+    opacity: 100%;
+    pointer-events: visible;
+}
+
+.shade {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    transition: all .15s;
+    padding: 2% 3% 2% 3%;
+}
+
+.create-item.show > .modal{
+    height: 70%;
+    width: 70%;
+    padding: 2% 3% 2% 3%;
+}
+
+.modal > div {
+    margin-bottom: 2%;
+}
+
+.modal label { 
+    margin-right: 5%;
+}
+
+.modal > div  * {
+    font-size: x-large;
+}
+
+.modal > button {
+    align-self: center;
+    margin-top: auto;
+    font-size: xx-large;
+    cursor: pointer;
+    background-color: limegreen;
+    color: white;
+    border-color: transparent;
+    border-radius: 15px;
+    padding: 1% 2% 1% 2%;
+}
+
+.autor-selector {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: wheat;
+}
+
+.autor-selector p {
+    padding: 0;
+    margin: 0;
 }

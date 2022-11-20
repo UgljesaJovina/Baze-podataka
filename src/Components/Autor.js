@@ -1,13 +1,16 @@
 export default function Autor(props) {
 
     async function del(){
-        const prom = await fetch(`http://localhost:5000/autori/${props.id}`, {method: "DELETE"});
-        if (prom.status === 406){
-            alert("Problem pri brisanju iz baze");
+        if (window.confirm(`Da li zelite da obrisete autora '${props.name} ${props.surname}'`)){
+            const prom = await fetch(`http://localhost:5000/autori/${props.id}`, {method: "DELETE"});
+            if (prom.status === 406){
+                alert("Problem pri brisanju iz baze");
+                return;
+            }
+    
+            const list = await fetch("http://localhost:5000/autori");
+            props.setList(await list.json());
         }
-
-        const list = await fetch("http://localhost:5000/autori");
-        props.setList(await list.json());
     }
 
     return (
