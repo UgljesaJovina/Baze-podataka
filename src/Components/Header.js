@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom"
-import "./Header.css"
 
 export default function Header(){
     const [current, changeCurrent] = useState(1);

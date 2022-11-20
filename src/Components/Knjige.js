@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import Knjiga from "./Knjiga";
 import KnjigaCreation from "./KnjigaCreation";
-import "./Table.css"
 
 
 export default function Knjige() {

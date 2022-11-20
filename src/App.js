@@ -3,6 +3,9 @@ import Header from "./Components/Header";
 import Izdavaci from "./Components/Izdavaci";
 import Knjige from "./Components/Knjige";
 import Autori from "./Components/Autori";
+import "./Header.css"
+import "./Table.css"
+import "./Modal.css"
 
 function App() {
   return (

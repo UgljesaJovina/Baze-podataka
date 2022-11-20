@@ -1,11 +1,6 @@
-import { useEffect, useState } from "react";
-
 export default function IzdavacCreation(props){
 
     let ime, pib, maticniBroj, adresa, telefon, mail, sajt;
-
-    //maticni broj je 8-ocifreni broj
-    //pib ima 10 cifara
 
     function CreateIzdavaca() {
         if (ime.value === "" || pib.value.length !== 9 || maticniBroj.value.length !== 13 || telefon.value === "" 

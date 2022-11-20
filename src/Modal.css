@@ -1,0 +1,82 @@
+.create-item {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.create-item.show {
+    opacity: 100%;
+    pointer-events: visible;
+}
+
+.shade {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    border-radius: 25px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    transition: all .15s;
+    padding: 2% 3% 2% 3%;
+}
+
+.create-item.show > .modal{
+    height: 60%;
+    width: 60%;
+    padding: 2% 3% 2% 3%;
+}
+
+.modal > div {
+    margin-bottom: 2%;
+}
+
+.modal label { 
+    margin-right: 5%;
+}
+
+.modal > div  * {
+    font-size: x-large;
+}
+
+.modal > button {
+    align-self: center;
+    margin-top: auto;
+    font-size: xx-large;
+    cursor: pointer;
+    background-color: limegreen;
+    color: white;
+    border-color: transparent;
+    border-radius: 15px;
+    padding: 1% 2% 1% 2%;
+}
+
+.autor-selector {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: wheat;
+}
+
+.autor-selector p {
+    padding: 0;
+    margin: 0;
+}

@@ -3,25 +3,27 @@ import { useEffect, useState } from "react";
 export default function KnjigaCreation(props){
 
     const [izdavaci, setIzdavaci] = useState([]);
+    const [autori, setAutori] = useState([]);
 
-    let ime, isbn, godina, cena, izdavac;
-
-    //isbn je 13-ocifreni broj kojeg prethodi 'ISBN'
+    let ime, isbn, godina, cena, izdavac, autor, autorVal;
 
     useEffect(() => {
         async function getData() {
             let prom = await fetch("http://localhost:5000/izdavaci-imena");
             setIzdavaci(await prom.json());
+            prom = await fetch("http://localhost:5000/autori-imena");
+            setAutori(await prom.json());
         }
         getData();
     }, []);
 
     function CreateBook() {
-        if (ime.value === "" || isbn.value.length !== 13 || godina.value === "" || cena.value === "" || izdavac.value === ""){
+        if (ime.value === "" || isbn.value.length !== 13 || godina.value === "" || 
+            cena.value === "" || izdavac.value === "" || autor.value === ""){
             alert("Neke vrednosti nisu unete kako treba!!");
             return;
         }
-        const options = {
+        let options = {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +32,7 @@ export default function KnjigaCreation(props){
                 naziv: ime.value,
                 isbn: isbn.value,
                 godinaIzdavanja: godina.value,
-                cena: parseInt(cena.value),
+                cena: cena.value,
                 izdavac: izdavac.value
             })
         };
@@ -45,8 +47,29 @@ export default function KnjigaCreation(props){
                 godina.value = "";
                 cena.value = "";
                 izdavac.value = "";
-                props.getData();
+                autorVal = autor.value;
+                autor.value = "";
             }
+            return res.json();
+        }).then(data => {
+            let options = {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    knjigaId: data.insertId,
+                    autorId: autorVal
+                })
+            }
+            autorVal = "";
+            fetch("http://localhost:5000/autor-knjiga", options)
+            .then(res => {
+                if (res.status === 406){
+                    alert("Problem pri upisivanju!!")
+                }
+                props.getData();
+            });
         });
     }
 
@@ -78,7 +101,11 @@ export default function KnjigaCreation(props){
                 </select>
             </div>
             <div>
-                <label>Autori:</label>
+                <label htmlFor="autor">Autori*:</label>
+                <select style={{padding: "0px 2%"}} defaultValue={""} name="autor" id="autor" ref={el => (autor = el)}>
+                    <option value={""} disabled hidden>Izaberite autora</option>
+                    {autori.map(el => <option key={el.id} value={el.id}>{el.ime} {el.prezime}</option> )};
+                </select>
             </div>
             <button onClick={CreateBook}>Dodaj knjigu</button>
         </div>

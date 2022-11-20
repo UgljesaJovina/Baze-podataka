@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Izdavac from "./Izdavac";
 import IzdavacCreation from "./IzdavacCreation";
-import "./Table.css";
 
 export default function Izdavaci() {
     const [izdavaci, setIzdavaci] = useState([]);

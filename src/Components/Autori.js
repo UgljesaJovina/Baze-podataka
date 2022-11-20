@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import Autor from "./Autor";
-import "./Table.css"
 import AutorCreation from "./AutorCreation"
 
 export default function Autori() {
